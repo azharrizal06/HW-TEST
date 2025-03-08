@@ -16,7 +16,7 @@ class HomeController extends GetxController {
     try {
       isLoading.value = true;
       final response = await http.get(
-        Uri.parse('$baseUrl $bennerurl'),
+        Uri.parse('$baseUrl$bennerurl'),
       );
 
       if (response.statusCode == 200) {

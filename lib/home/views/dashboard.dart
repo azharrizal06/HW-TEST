@@ -17,15 +17,15 @@ class _MainScreenState extends State<MainScreen> {
 
   final List<Widget> _pages = [
     const MyHomePage(),
-    Center(child: Text("data")),
-    Center(child: Text("data"))
+    Center(child: Text("Events Screen")),
+    Center(child: Text("Profile Screen")),
   ];
-
+  final HomeController homeController = Get.put(HomeController());
   @override
   void initState() {
     super.initState();
-    Get.put(HomeController()); // Inisialisasi HomeController
-    // Inisialisasi ProfileController
+    // Get.put(HomeController()); // Inisialisasi HomeController
+    homeController.getBanner();
   }
 
   @override
@@ -34,8 +34,8 @@ class _MainScreenState extends State<MainScreen> {
       body: _pages[_currentIndex], // Menampilkan halaman yang dipilih
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: kColorBgAccent,
-        selectedItemColor: Colors.amber,
-        unselectedItemColor: Colors.white,
+        selectedItemColor: kColorPrimary,
+        unselectedItemColor: kColorSecondaryText,
         currentIndex: _currentIndex,
         onTap: (index) {
           setState(() {

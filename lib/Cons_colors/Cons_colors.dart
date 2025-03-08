@@ -12,35 +12,22 @@ const kColorTextSecondary = Color(0xFF8B8B8B);
 const kColorTextButton = Color(0xFF000000);
 const kColorSecondaryText = Color(0xFFC4C4C4);
 
-TextStyle heading1 = TextStyle(
-  fontSize: 24,
-  fontWeight: FontWeight.bold,
-  color: Colors.white,
-);
+TextStyle heading1 = const TextStyle(
+    fontSize: 24, fontWeight: FontWeight.bold, color: kColorText);
 
-TextStyle heading2 = TextStyle(
-  fontSize: 20,
-  fontWeight: FontWeight.w600,
-  color: Colors.white,
-);
+TextStyle heading2 = const TextStyle(
+    fontSize: 20, fontWeight: FontWeight.w600, color: kColorText);
 
-TextStyle bodyText = TextStyle(
-  fontSize: 16,
-  fontWeight: FontWeight.normal,
-  color: Colors.white,
-);
+TextStyle bodyText = const TextStyle(
+    fontSize: 14, fontWeight: FontWeight.normal, color: kColorText);
 
-TextStyle caption = TextStyle(
-  fontSize: 12,
-  fontWeight: FontWeight.w300,
-  color: Colors.grey,
-);
+TextStyle caption = const TextStyle(
+    fontSize: 12, fontWeight: FontWeight.w300, color: kColorTextSecondary);
 
-TextStyle customText({
-  double size = 14,
-  FontWeight weight = FontWeight.normal,
-  Color color = Colors.white,
-}) {
+TextStyle customText(
+    {double size = 14,
+    FontWeight weight = FontWeight.normal,
+    Color color = kColorText}) {
   return TextStyle(
     fontSize: size,
     fontWeight: weight,

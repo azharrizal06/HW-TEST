@@ -19,7 +19,7 @@ class _ChartViewState extends State<ChartView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: kColorBg,
       body: Column(
         children: [
           SizedBox(height: kToolbarHeight),
@@ -29,7 +29,7 @@ class _ChartViewState extends State<ChartView> {
               width: MediaQuery.of(context).size.width * 0.9,
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: Colors.grey[900],
+                color: kColorBgAccentDarker,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Column(
@@ -40,10 +40,9 @@ class _ChartViewState extends State<ChartView> {
                     child: Text(
                       'HWGPeople Top Charts',
                       style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: kColorText),
                     ),
                   ),
                   // Perbaikan: Gunakan Expanded agar FutureBuilder tidak menyebabkan overflow
@@ -54,13 +53,15 @@ class _ChartViewState extends State<ChartView> {
                         if (snapshot.connectionState ==
                             ConnectionState.waiting) {
                           return const Center(
-                              child: CircularProgressIndicator());
+                              child: CircularProgressIndicator(
+                            color: kColorPrimary,
+                          ));
                         }
                         if (snapshot.hasError) {
                           return Center(
                             child: Text(
                               'Error: ${snapshot.error}',
-                              style: const TextStyle(color: Colors.white),
+                              style: const TextStyle(color: kColorText),
                             ),
                           );
                         }
@@ -71,7 +72,7 @@ class _ChartViewState extends State<ChartView> {
                           return const Center(
                             child: Text(
                               'Tidak ada data',
-                              style: TextStyle(color: Colors.white),
+                              style: TextStyle(color: kColorText),
                             ),
                           );
                         }
@@ -106,9 +107,9 @@ class _ChartViewState extends State<ChartView> {
                                         ? Container(
                                             width: 40,
                                             height: 40,
-                                            color: Colors.grey[700],
+                                            color: kColorTextSecondary,
                                             child: const Icon(Icons.music_note,
-                                                color: Colors.white),
+                                                color: kColorText),
                                           )
                                         : Image.network(
                                             songData
@@ -123,7 +124,7 @@ class _ChartViewState extends State<ChartView> {
                               title: Text(
                                 songData.song?.title ?? 'Unknown',
                                 style: const TextStyle(
-                                  color: Colors.white,
+                                  color: kColorText,
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -131,7 +132,7 @@ class _ChartViewState extends State<ChartView> {
                               subtitle: Text(
                                 songData.song?.artistName ?? 'Unknown Artist',
                                 style: const TextStyle(
-                                    color: Colors.grey, fontSize: 12),
+                                    color: kColorTextSecondary, fontSize: 12),
                               ),
                             );
                           },

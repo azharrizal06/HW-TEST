@@ -3,6 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:hw_test/home/views/chartview.dart';
 
+import '../Cons_colors/Cons_colors.dart';
+
 class HomeMenu extends StatelessWidget {
   final List<Map<String, String>> menuItems = [
     {"title": "Atlas", "image": "assets/icons/ic_atlas_logo.svg"},
@@ -21,8 +23,8 @@ class HomeMenu extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
         child: Wrap(
           alignment: WrapAlignment.center, // Pusatkan item
-          spacing: 20, // Jarak antar item horizontal
-          runSpacing: 10, // Jarak antar baris
+          spacing: 25, // Jarak antar item horizontal
+          runSpacing: 20, // Jarak antar baris
           children: menuItems.map((item) => _buildMenuItem(item)).toList(),
         ),
       ),
@@ -50,7 +52,7 @@ class HomeMenu extends StatelessWidget {
             Text(
               item["title"]!,
               textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.white, fontSize: 12),
+              style: TextStyle(color: kColorText, fontSize: 12),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
             ),

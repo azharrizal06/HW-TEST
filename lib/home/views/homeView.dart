@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../Cons_colors/Cons_colors.dart';
 import '../../Widget/HiderWidget.dart';
 import '../../Widget/benner.dart';
 import '../../Widget/favorit.dart';
@@ -21,23 +22,31 @@ class _MyHomePageState extends State<MyHomePage> {
   final HomeController homeController = Get.put(HomeController());
   void initState() {
     super.initState();
-    homeController.getBanner();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
-      child: SingleChildScrollView(
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          SizedBox(height: kToolbarHeight),
-          WidgetHeader(),
-          Bannerhome(),
-          LoginPromptCard(),
-          HomeMenu(),
-          FavoriteOutletsCard()
-        ]),
-      ),
-    ));
+            child: Obx(
+      () => homeController.isLoading.value
+          ? Center(
+              child: CircularProgressIndicator(
+                color: kColorPrimary,
+              ),
+            )
+          : SingleChildScrollView(
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(height: kToolbarHeight),
+                    WidgetHeader(),
+                    Bannerhome(),
+                    LoginPromptCard(),
+                    HomeMenu(),
+                    FavoriteOutletsCard()
+                  ]),
+            ),
+    )));
   }
 }

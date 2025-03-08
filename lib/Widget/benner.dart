@@ -14,7 +14,7 @@ class Bannerhome extends StatelessWidget {
       if (controller.isLoading.value) {
         return Center(
           child: CircularProgressIndicator(
-            color: kColorText,
+            color: kColorPrimary,
           ),
         );
       }

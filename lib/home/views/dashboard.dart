@@ -24,14 +24,14 @@ class _MainScreenState extends State<MainScreen> {
   @override
   void initState() {
     super.initState();
-    // Get.put(HomeController()); // Inisialisasi HomeController
+
     homeController.getBanner();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _pages[_currentIndex], // Menampilkan halaman yang dipilih
+      body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: kColorBgAccent,
         selectedItemColor: kColorPrimary,

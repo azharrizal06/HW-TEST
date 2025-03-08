@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../Cons_colors/Cons_colors.dart';
+import '../../Widget/HiderWidget.dart';
 import '../../Widget/benner.dart';
 import '../controller/HomeController.dart';
 
@@ -26,25 +26,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
         body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       SizedBox(height: kToolbarHeight),
-      Container(
-        margin: EdgeInsets.only(left: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Hi, HWG People',
-              style: heading1,
-            ),
-            InkWell(
-              onTap: () {},
-              child: Text(
-                'Click to login',
-                style: TextStyle(color: kColorPrimary, fontSize: 14),
-              ),
-            ),
-          ],
-        ),
-      ),
+      WidgetHeader(),
       Bannerhome(),
     ]));
   }

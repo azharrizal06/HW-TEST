@@ -45,109 +45,107 @@ class _ChartViewState extends State<ChartView> {
                           color: kColorText),
                     ),
                   ),
-                  // Perbaikan: Gunakan Expanded agar FutureBuilder tidak menyebabkan overflow
-                  Expanded(
-                    child: FutureBuilder<ResponModelCharts?>(
-                      future: homeController.getLatestCharts(),
-                      builder: (context, snapshot) {
-                        if (snapshot.connectionState ==
-                            ConnectionState.waiting) {
-                          return const Center(
-                              child: CircularProgressIndicator(
-                            color: kColorPrimary,
-                          ));
-                        }
-                        if (snapshot.hasError) {
-                          return Center(
-                            child: Text(
-                              'Error: ${snapshot.error}',
-                              style: const TextStyle(color: kColorText),
-                            ),
-                          );
-                        }
-                        final chartData = snapshot.data?.data;
-                        if (chartData == null ||
-                            chartData.songs == null ||
-                            chartData.songs!.isEmpty) {
-                          return const Center(
-                            child: Text(
-                              'Tidak ada data',
-                              style: TextStyle(color: kColorText),
-                            ),
-                          );
-                        }
-
-                        return ListView.builder(
-                          itemCount: chartData.songs!.length,
-                          itemBuilder: (context, index) {
-                            final songData = chartData.songs![index];
-                            final bool isTopThree = index < 3;
-                            final TextStyle rankColor = isTopThree
-                                ? (index == 0
-                                    ? Rank1
-                                    : index == 1
-                                        ? Rank2
-                                        : Rank3)
-                                : Rankall;
-
-                            return ListTile(
-                              leading: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Text(
-                                    '${songData.position}${_getRankSuffix(songData.position!)}',
-                                    style: rankColor,
-                                  ),
-                                  const SizedBox(width: 10),
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(8),
-                                    child: songData
-                                                .song?.artistProfilePicture ==
-                                            null
-                                        ? Container(
-                                            width: 40,
-                                            height: 40,
-                                            color: kColorTextSecondary,
-                                            child: const Icon(Icons.music_note,
-                                                color: kColorText),
-                                          )
-                                        : Image.network(
-                                            songData
-                                                .song!.artistProfilePicture!,
-                                            width: 40,
-                                            height: 40,
-                                            fit: BoxFit.cover,
-                                          ),
-                                  ),
-                                ],
-                              ),
-                              title: Text(
-                                songData.song?.title ?? 'Unknown',
-                                style: const TextStyle(
-                                  color: kColorText,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              subtitle: Text(
-                                songData.song?.artistName ?? 'Unknown Artist',
-                                style: const TextStyle(
-                                    color: kColorTextSecondary, fontSize: 12),
-                              ),
-                            );
-                          },
-                        );
-                      },
-                    ),
-                  ),
+                  listSong(),
                   const SizedBox(height: 10),
-                  // Pastikan tombol tetap dalam batas layout
                   MusicButtons(),
                 ],
               ),
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget listSong() {
+    return Expanded(
+      child: FutureBuilder<ResponModelCharts?>(
+        future: homeController.getLatestCharts(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+                child: CircularProgressIndicator(
+              color: kColorPrimary,
+            ));
+          }
+          if (snapshot.hasError) {
+            return Center(
+              child: Text(
+                'Error: ${snapshot.error}',
+                style: const TextStyle(color: kColorText),
+              ),
+            );
+          }
+          final chartData = snapshot.data?.data;
+          if (chartData == null ||
+              chartData.songs == null ||
+              chartData.songs!.isEmpty) {
+            return const Center(
+              child: Text(
+                'Tidak ada data',
+                style: TextStyle(color: kColorText),
+              ),
+            );
+          }
+
+          return ListView.builder(
+            itemCount: chartData.songs!.length,
+            itemBuilder: (context, index) {
+              final songData = chartData.songs![index];
+              final bool isTopThree = index < 3;
+              final TextStyle rankColor = isTopThree
+                  ? (index == 0
+                      ? Rank1
+                      : index == 1
+                          ? Rank2
+                          : Rank3)
+                  : Rankall;
+
+              return ListTile(
+                leading: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      '${songData.position}${_getRankSuffix(songData.position!)}',
+                      style: rankColor,
+                    ),
+                    const SizedBox(width: 10),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: songData.song?.artistProfilePicture == null
+                          ? Container(
+                              width: 40,
+                              height: 40,
+                              color: kColorTextSecondary,
+                              child: const Icon(Icons.music_note,
+                                  color: kColorText),
+                            )
+                          : Image.network(
+                              songData.song!.artistProfilePicture!,
+                              width: 40,
+                              height: 40,
+                              fit: BoxFit.cover,
+                            ),
+                    ),
+                  ],
+                ),
+                title: Text(
+                  songData.song?.title ?? 'Unknown',
+                  style: const TextStyle(
+                    color: kColorText,
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                subtitle: Text(
+                  songData.song?.artistName ?? 'Unknown Artist',
+                  style:
+                      const TextStyle(color: kColorTextSecondary, fontSize: 12),
+                ),
+              );
+            },
+          );
+        },
       ),
     );
   }

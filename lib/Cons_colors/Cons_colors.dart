@@ -25,7 +25,7 @@ TextStyle heading2 = TextStyle(
 );
 
 TextStyle bodyText = TextStyle(
-  fontSize: 16,
+  fontSize: 14,
   fontWeight: FontWeight.normal,
   color: Colors.white,
 );
@@ -35,6 +35,12 @@ TextStyle caption = TextStyle(
   fontWeight: FontWeight.w300,
   color: Colors.grey,
 );
+
+TextStyle Rank1 = TextStyle(
+    fontSize: 18, fontWeight: FontWeight.bold, color: kColorSecondary);
+TextStyle Rank2 = TextStyle(fontSize: 16, color: kColorSecondary);
+TextStyle Rank3 = TextStyle(fontSize: 14, color: kColorSecondary);
+TextStyle Rankall = TextStyle(fontSize: 14, color: kColorText);
 
 TextStyle customText({
   double size = 14,

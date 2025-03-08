@@ -1,6 +1,6 @@
 # HW\_TEST
 
-HW\_TEST adalah proyek Flutter yang dikembangkan untuk menampilkan berbagai fitur, termasuk tampilan Homepage, kontrol data, dan widget kustom.
+HW\_TEST adalah proyek Flutter yang dikembangkan untuk menampilkan berbagai fitur, termasuk tampilan Homepage, kontrol data, dan widget .
 
 ## Struktur Folder
 

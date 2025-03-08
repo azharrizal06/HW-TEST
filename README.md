@@ -60,7 +60,10 @@ Proyek ini dikembangkan menggunakan:
 ```
 Flutter 3.13.2 
 ```
-
+## Versi java 
+```
+java Versi: 21.0.2
+```
 ## Dependensi yang Digunakan
 
 Proyek ini menggunakan dependensi berikut:

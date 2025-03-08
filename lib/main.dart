@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'home/views/homeView.dart';
+import 'Cons_colors/Cons_colors.dart';
+import 'home/views/dashboard.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,10 +15,14 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'HW Test',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        scaffoldBackgroundColor: kColorBg,
+        textTheme: const TextTheme(
+          bodyLarge: TextStyle(color: Colors.white),
+          bodyMedium: TextStyle(color: Colors.white),
+          bodySmall: TextStyle(color: Colors.white),
+        ),
       ),
-      home: const MyHomePage(),
+      home: MainScreen(),
     );
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../Cons_colors/Cons_colors.dart';
+import '../../Widget/HiderWidget.dart';
 import '../../Widget/benner.dart';
 import '../../Widget/favorit.dart';
 import '../../Widget/fromloginCart.dart';
@@ -29,28 +29,14 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
         body: SafeArea(
       child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            SizedBox(height: kToolbarHeight),
-            Text(
-              'Hi, HWG People',
-              style: heading1,
-            ),
-            InkWell(
-              onTap: () {},
-              child: Text(
-                'Click to login',
-                style: TextStyle(color: kColorPrimary, fontSize: 14),
-              ),
-            ),
-            Bannerhome(),
-            LoginPromptCard(),
-            HomeMenu(),
-            FavoriteOutletsCard()
-          ]),
-        ),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          SizedBox(height: kToolbarHeight),
+          WidgetHeader(),
+          Bannerhome(),
+          LoginPromptCard(),
+          HomeMenu(),
+          FavoriteOutletsCard()
+        ]),
       ),
     ));
   }

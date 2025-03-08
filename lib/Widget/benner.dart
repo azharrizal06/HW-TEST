@@ -20,7 +20,7 @@ class Bannerhome extends StatelessWidget {
       }
 
       if (controller.bannerList.isEmpty) {
-        return SizedBox(); // Tidak tampilkan apa pun jika tidak ada banner
+        return SizedBox();
       }
 
       return Padding(

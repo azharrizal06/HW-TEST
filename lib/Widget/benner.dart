@@ -30,7 +30,8 @@ class Bannerhome extends StatelessWidget {
             CarouselSlider(
               options: CarouselOptions(
                 enlargeCenterPage: true,
-                viewportFraction: 0.8,
+                viewportFraction: 0.82,
+                height: MediaQuery.of(context).size.width * 0.9,
                 autoPlay: controller.bannerList.length > 1,
                 onPageChanged: (index, reason) {
                   controller.currentIndex.value = index;

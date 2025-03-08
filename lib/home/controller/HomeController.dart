@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
+import 'package:hw_test/Url_servies/baseUrl.dart';
 import 'package:logger/web.dart';
 
 import '../model/Respon_model_benner.dart';
@@ -15,7 +16,7 @@ class HomeController extends GetxController {
     try {
       isLoading.value = true;
       final response = await http.get(
-        Uri.parse('https://customer.holywings.id/api/v1/whats-on/banner'),
+        Uri.parse('$baseUrl $bennerurl'),
       );
 
       if (response.statusCode == 200) {

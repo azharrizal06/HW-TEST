@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:logger/logger.dart';
 
 import '../../Cons_colors/Cons_colors.dart';
 import '../../Widget/buttomMusik.dart';
@@ -102,6 +103,7 @@ class _ChartViewState extends State<ChartView> {
                   : Rankall;
 
               return ListTile(
+                onTap: () => Logger().i("Tombol list song ditekan"),
                 leading: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [

@@ -22,7 +22,7 @@ class HomeMenu extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
         child: Wrap(
-          alignment: WrapAlignment.center, // Pusatkan item
+          alignment: WrapAlignment.center,
           spacing: 25, // Jarak antar item horizontal
           runSpacing: 20, // Jarak antar baris
           children: menuItems.map((item) => _buildMenuItem(item)).toList(),
@@ -35,7 +35,7 @@ class HomeMenu extends StatelessWidget {
     Map<String, String> item,
   ) {
     return SizedBox(
-      width: 80, // Tetapkan ukuran agar lebih rapi
+      width: 80,
       child: InkWell(
         onTap: () {
           Get.to(ChartView());

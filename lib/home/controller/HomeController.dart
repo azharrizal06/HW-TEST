@@ -28,6 +28,7 @@ class HomeController extends GetxController {
             .toList());
         isLoading(false);
       } else {
+        Logger().e('Error: ${response.statusCode}');
         throw Exception('Gagal mengambil data banner');
       }
     } catch (e) {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
 
 import '../Cons_colors/Cons_colors.dart';
 
@@ -21,7 +22,9 @@ class FavoriteOutletsCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(5),
             child: InkWell(
               borderRadius: BorderRadius.circular(5),
-              onTap: () {},
+              onTap: () {
+                Logger().i("Tombol My Favorite Outlets ditekan");
+              },
               child: Container(
                 width: double.infinity,
                 padding: EdgeInsets.all(16),

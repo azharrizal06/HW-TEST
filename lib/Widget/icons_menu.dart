@@ -23,8 +23,8 @@ class HomeMenu extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
         child: Wrap(
           alignment: WrapAlignment.center,
-          spacing: 25, // Jarak antar item horizontal
-          runSpacing: 20, // Jarak antar baris
+          spacing: 25,
+          runSpacing: 20,
           children: menuItems.map((item) => _buildMenuItem(item)).toList(),
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:logger/logger.dart';
 
 import '../Cons_colors/Cons_colors.dart';
 
@@ -13,7 +14,9 @@ class LoginPromptCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(5),
         child: InkWell(
           borderRadius: BorderRadius.circular(5),
-          onTap: () {},
+          onTap: () {
+            Logger().i("Tombol login ditekan");
+          },
           child: Ink(
             padding: EdgeInsets.all(16),
             decoration: BoxDecoration(
@@ -26,7 +29,7 @@ class LoginPromptCard extends StatelessWidget {
                   width: 48,
                   height: 48,
                 ),
-                SizedBox(width: 12), // Jarak antara avatar dan teks
+                SizedBox(width: 12),
                 Expanded(
                   child: Text(
                     "Login to see voucher and point information",

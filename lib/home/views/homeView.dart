@@ -39,11 +39,17 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    // tinngi atas
                     SizedBox(height: kToolbarHeight),
+                    //Hider Widget
                     WidgetHeader(),
+                    // banner wideget
                     Bannerhome(),
+                    // login widget
                     LoginPromptCard(),
+                    // charts widget
                     HomeMenu(),
+                    // favorite widget
                     FavoriteOutletsCard()
                   ]),
             ),
